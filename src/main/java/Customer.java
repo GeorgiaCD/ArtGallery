@@ -12,12 +12,26 @@ public class Customer {
         this.artCollections = new ArrayList<Artwork>();
     }
 
-    // getname
-    //getwalletamount
+    // getName
+    //getWalletAmount
     // get art collection size
     // add to the art collection
 
+    public String getName(){
+        return this.name;
+    }
 
+    public int getWalletAmount(){
+        return this.wallet;
+    }
+
+    public int getArtCollectionSize(){
+        return this.artCollections.size();
+    }
+
+    public void addArtToCollection(Artwork newArt){
+        this.artCollections.add(newArt);
+    }
 
 
     // buy art work
@@ -26,5 +40,12 @@ public class Customer {
     // deduct the price from wallet,
     // add art to art collection
     // remove art from gallery stock)
+    public void buyArt(Artwork artForSale){
+        if(gallery.sellArtwork(artForSale)){
+            if(this.wallet > artForSale.price()){
+
+            }
+        }
+    }
 
 }

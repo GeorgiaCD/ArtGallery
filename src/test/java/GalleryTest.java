@@ -58,6 +58,11 @@ public class GalleryTest {
 
 
     // can sell art work
+    @Test
+    public void canSellArtwork(){
+
+    }
+
 
 
 }

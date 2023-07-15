@@ -9,7 +9,5 @@ public class Artist {
         return this.name;
     }
 
-
-
     }
 
