@@ -14,7 +14,7 @@ public class GalleryTest {
     }
 
 //    test format
-//   public void TESTNAME(){ //   given //   when //   then
+//   public void TEST NAME(){ //   given //   when //   then
 
     @Test
     public void getNameTest() {
@@ -44,14 +44,20 @@ public class GalleryTest {
     // getStock test
     @Test
     public void getStockAmount(){
-    assertThat((gallery.getStockAmount()).isEqualTo(0);
+    assertThat(gallery.getStockAmount()).isEqualTo(0);
+    }
+
+    // addArtwork test
+    @Test
+    public void canAddArt(){
+        Artwork flower1 = new Artwork("flowers", new Artist("George"), 100);
+        gallery.addArtwork(flower1);
+        // "flower1" is added to the gallery only for this test
+        assertThat(gallery.getStockAmount()).isEqualTo(1);
     }
 
 
-    // addArtwork test
-
-
-    // getArtwork test
+    // can sell art work
 
 
 }
