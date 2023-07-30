@@ -56,6 +56,14 @@ public class GalleryTest {
         assertThat(gallery.getStockAmount()).isEqualTo(1);
     }
 
+    @Test
+    public void canArtworkForSale(){
+        Artwork flower1 = new Artwork("flowers", new Artist("George"), 100);
+        gallery.addArtwork(flower1);
+        assertThat(gallery.artworkForSale(flower1)).isEqualTo(true);
+    }
+
+
 
     // can sell art work
     @Test

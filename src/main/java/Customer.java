@@ -33,6 +33,12 @@ public class Customer {
         this.artCollections.add(newArt);
     }
 
+    public Boolean canBuy(Artwork artForSale){
+        if(this.wallet > artForSale.price){
+            return true;
+        } else {return false;}
+    }
+
 
     // buy art work
     // (check if being sold, (gallery.method)
@@ -40,12 +46,12 @@ public class Customer {
     // deduct the price from wallet,
     // add art to art collection
     // remove art from gallery stock)
-    public void buyArt(Artwork artForSale){
-        if(gallery.sellArtwork(artForSale)){
-            if(this.wallet > artForSale.price()){
-
-            }
-        }
-    }
+//    public void buyArt(Artwork artForSale){
+//        if(gallery.sellArtwork(artForSale)){
+//            if(this.wallet > artForSale.price()){
+//
+//            }
+//        }
+//    }
 
 }
