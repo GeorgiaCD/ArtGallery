@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Customer {
 
     private String name;
-    private int wallet;
+    protected int wallet;
     private ArrayList<Artwork> artCollections;
 
     public Customer(String inputName,int walletAmount){
@@ -25,8 +25,18 @@ public class Customer {
         return this.wallet;
     }
 
+    public void removeMoney(Artwork artForSale){
+        this.wallet -= artForSale.price;
+    }
+
     public int getArtCollectionSize(){
         return this.artCollections.size();
+    }
+
+    public boolean collectionContains(Artwork art){
+        if(artCollections.contains(art)){
+            return true;
+        } else return false;
     }
 
     public void addArtToCollection(Artwork newArt){
@@ -40,18 +50,6 @@ public class Customer {
     }
 
 
-    // buy art work
-    // (check if being sold, (gallery.method)
-    // check if have enough money in the wallet,
-    // deduct the price from wallet,
-    // add art to art collection
-    // remove art from gallery stock)
-//    public void buyArt(Artwork artForSale){
-//        if(gallery.sellArtwork(artForSale)){
-//            if(this.wallet > artForSale.price()){
-//
-//            }
-//        }
-//    }
+
 
 }

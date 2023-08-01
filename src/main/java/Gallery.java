@@ -23,6 +23,13 @@ public class Gallery {
     public void setTillAmount(int amount){
         this.till += amount;
     }
+
+    public void addSoldArtToTill(Artwork artForSale){
+        this.till += artForSale.price;
+    }
+
+
+
     //adding artwork to the Artwork array
     public void addArtwork(Artwork newArtwork){
         this.artworks.add(newArtwork);
@@ -41,22 +48,19 @@ public class Gallery {
         } else return false;
     }
 
-    //increase the till amount by that artworks price
-    // remove artwork from stock
-//    public void sellingArtwork(Customer customer,Artwork artForSale){
-//        Gallery gallery;
-//        if(gallery.artworkForSale(artForSale)&&(customer.canBuy)){
-//            till += artForSale.price;
-//            Artwork.remove(artForSale);
-//        }
-//    }
 
-//    public void sellArtwork(Customer customer, Artwork artwork){
-//        if(customer.canBuy(artwork) == true){
-//            customer.buyArtwork(artwork);
-//            this.stock.remove(artwork);
-//            setTill(this.till + artwork.getPrice());
-//        }
-//    }
+
+
+    public void sellArtwork(Customer customer,Artwork artForSale){
+            if(artworks.contains(artForSale) && (customer.canBuy(artForSale))){
+            // gallery can sell and artist can buy
+                // then remove from the collection
+                // increase the till amount by price
+                this.artworks.remove(artForSale);
+                this.till += artForSale.price;
+                customer.removeMoney(artForSale);
+                customer.addArtToCollection(artForSale);
+            }
+        }
 
 }

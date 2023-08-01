@@ -44,6 +44,12 @@ public class CustomerTest {
     }
 
 
+    @Test
+    public void cantBuy(){
+        Artwork theExpensive = new Artwork("The expensive Weeping Woman", new Artist("Picasso Pablo"), 123455);
+        assertThat(customer.canBuy(theExpensive)).isEqualTo(false);
+    }
+
 
 
 }
