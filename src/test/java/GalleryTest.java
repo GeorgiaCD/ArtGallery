@@ -18,7 +18,7 @@ public class GalleryTest {
 //   public void TEST NAME(){ //   given //   when //   then
 
     @Test
-    public void getNameTest() {
+    public void canGetName() {
         gallery = new Gallery("Tate");
         //  when
         String result = gallery.getName();

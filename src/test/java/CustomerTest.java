@@ -6,10 +6,12 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class CustomerTest {
 
     Customer customer;
+    Artwork monalisa;
 
     @BeforeEach
     public void setUP(){
-    customer = new Customer("Georgia", 12345);}
+    customer = new Customer("Georgia", 12345);
+    Artwork monalisa = new Artwork("Mona lisa", new Artist("Leonardo da Vinci"), 1000);}
 
     @Test
     public void canGetName(){
@@ -30,7 +32,6 @@ public class CustomerTest {
 
     @Test
     public void canAddArt(){
-        Artwork monalisa = new Artwork("Mona lisa", new Artist("Leonardo da Vinci"), 1000);
         customer.addArtToCollection(monalisa);
         assertThat(customer.getArtCollectionSize()).isEqualTo(1);
 
@@ -50,6 +51,28 @@ public class CustomerTest {
         assertThat(customer.canBuy(theExpensive)).isEqualTo(false);
     }
 
+    @Test
+    public void canRemoveMoney(){
+        Artwork picture = new Artwork("Picture", new Artist("Leonardo da Vinci"), 10);
+        customer.removeMoney(picture);
+        assertThat(customer.getWalletAmount()).isEqualTo(12335);
 
+    }
+
+    @Test
+    public void collectionContains(){
+        customer.addArtToCollection(monalisa);
+        assertThat(customer.collectionContains(monalisa)).isEqualTo(true);
+
+
+    }
+
+
+    @Test
+    public void collectionDoesNotContains(){
+        Artwork flower1 = new Artwork("flowers", new Artist("George"), 100);
+        assertThat(customer.collectionContains(flower1)).isEqualTo(false);
+
+    }
 
 }
